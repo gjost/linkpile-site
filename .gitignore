@@ -2,7 +2,7 @@
 *.pyc
 apps/
 conf/local.cfg
-linkscafejosti/db.sqlite3
-linkscafejosti/linkscafejosti/settings.py
+linkpilesite/db.sqlite3
+linkpilesite/linkpilesite/settings.py
 logs/
 venv/

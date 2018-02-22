@@ -1,5 +1,5 @@
-PROJECT=links-cafejosti
-APP=linkscafejosti
+PROJECT=linkpile-site
+APP=linkpilesite
 USER=gjost
 SHELL = /bin/bash
 
