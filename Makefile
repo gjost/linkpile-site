@@ -26,8 +26,7 @@ VIRTUALENV=$(PROJECTDIR)/venv/
 SETTINGS=$(APPDIR)/$(APP)/settings.py
 
 CONF_BASE=$(PROJECTDIR)/conf
-CONF_PRODUCTION=$(CONF_BASE)/$(APP).cfg
-CONF_LOCAL=$(CONF_BASE)/$(APP)-local.cfg
+CONF_LOCAL=$(CONF_BASE)/local.cfg
 
 LOGS_BASE=$(PROJECTDIR)/logs
 
@@ -115,6 +114,7 @@ install-app: install-virtualenv
 	source $(VIRTUALENV)/bin/activate; \
 	pip3 install -U -r $(REQUIREMENTS)
 	-mkdir apps
+	cp $(CONF_BASE)/settings.py $(APP)/$(APP)/
 # logs dir
 	-mkdir $(LOGS_BASE)
 	chown -R $(USER).$(USER) $(LOGS_BASE)

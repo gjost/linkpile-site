@@ -10,22 +10,36 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+import configparser
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+CONFIG_FILES = [
+    os.path.join(BASE_DIR, '..', 'conf', 'local.cfg'),
+]
+
+config = configparser.ConfigParser()
+configs_read = config.read(CONFIG_FILES)
+if not configs_read:
+    print('No config file! (e.g. %s)' % os.path.join(BASE_DIR, 'conf', 'local.cfg'))
+    sys.exit(1)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'N0 M0R3 S3CR375'
+SECRET_KEY = config.get('project', 'secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config.getboolean('project', 'debug')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in config.get('project', 'allowed_hosts').split(',')
+]
 
 
 # Application definition
