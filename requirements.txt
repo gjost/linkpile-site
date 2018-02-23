@@ -1,3 +1,4 @@
 # requirements for linkpile-site project
 
+bpython
 django<2.0.0
