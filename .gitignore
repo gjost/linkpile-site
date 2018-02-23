@@ -3,6 +3,5 @@
 apps/
 conf/local.cfg
 linkpilesite/db.sqlite3
-linkpilesite/linkpilesite/settings.py
 logs/
 venv/
