@@ -95,8 +95,12 @@ WSGI_APPLICATION = 'linkpilesite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': config.get('project', 'db_engine'),
+        'NAME': config.get('project', 'db_name'),
+        'HOST': config.get('project', 'db_host'),
+        'PORT': config.get('project', 'db_port'),
+        'USER': config.get('project', 'db_username'),
+        'PASSWORD': config.get('project', 'db_password'),
     }
 }
 
