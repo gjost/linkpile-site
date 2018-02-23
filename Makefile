@@ -23,7 +23,6 @@ PIP_CACHE_DIR=$(PROJECTDIR)/pip-cache
 INSTALL_LINKPILE=$(APPSDIR)/django-linkpile
 
 VIRTUALENV=$(PROJECTDIR)/venv/
-SETTINGS=$(APPDIR)/$(APP)/settings.py
 
 CONF_BASE=$(PROJECTDIR)/conf
 CONF_LOCAL=$(CONF_BASE)/local.cfg
@@ -114,7 +113,6 @@ install-app: install-virtualenv
 	source $(VIRTUALENV)/bin/activate; \
 	pip3 install -U -r $(REQUIREMENTS)
 	-mkdir apps
-	cp $(CONF_BASE)/settings.py $(APP)/$(APP)/
 # logs dir
 	-mkdir $(LOGS_BASE)
 	chown -R $(USER).$(USER) $(LOGS_BASE)
