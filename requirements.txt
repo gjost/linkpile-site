@@ -1,0 +1,9 @@
+# requirements for linkpile-site project
+
+bpython
+django<2.0.0
+django-bootstrap-pagination
+django-redis
+django-redis-cache
+django-redis-sessions
+gunicorn
